@@ -15,24 +15,24 @@ This project requires Python 3.x and the pygame library. Ensure both are install
 ### Installing Pygame
 
 Install Pygame using pip:
-
+```
 pip install pygame
-
+```
 ## Usage
 
 1. **Clone the Repository**:
 
    Clone the repository to your local machine:
-
+   ```
    git clone https://github.com/yourusername/your-repository.git
    cd your-repository
-
+   ```
 2. **Set Up the Environment**:
 
    Ensure all dependencies are installed. You can install Pygame as follows:
-
+   ```
    pip install pygame
-
+   ```
 3. **Configure Parameters**:
 
    In the code, you can adjust several parameters for the simulation:
