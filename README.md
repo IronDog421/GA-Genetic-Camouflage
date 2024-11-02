@@ -49,60 +49,6 @@ pip install pygame
 
    The program will display a grid, where each cell represents an organism with a grayscale color based on its DNA value. The current generation number will update in real-time on the right side of the window.
 
-## Example Code
-
-Below is an example demonstrating how to initialize and run the `Grid` simulation.
-
-import numpy as np
-from grid import Grid
-
-# Define the organism matrix with random DNA values
-organisms = np.random.randint(0, 256, size=(50, 50))
-
-# Initialize the grid with a camouflage color and a delay of 100ms
-grid = Grid(camouflage_color=(50, 50, 50), organisms=organisms, delay_ms=100)
-
-# Run the simulation for 100 generations
-for generation in range(100):
-    grid.draw(organisms=organisms, delay_ms=100, epoc=generation)
-
-This code snippet will initialize a `Grid` object and render the simulation for 100 generations, with a 100-millisecond delay between frames.
-
-## Set Up the Environment on macOS
-
-After creating the virtual environment, you’ll need to activate it to install dependencies and run the project in an isolated environment on macOS.
-
-1. **Create the Virtual Environment**:
-
-   If you haven’t created the virtual environment yet, do so by running:
-   ```
-   python3 -m venv env
-   ```
-
-2. **Activate the Environment**:
-
-   To activate the virtual environment on macOS, use the following command:
-   ```
-   source env/bin/activate
-   ```
-   Once activated, you should see `(env)` appear at the beginning of your terminal prompt, indicating that the environment is active.
-
-3. **Install Dependencies**:
-
-   Now that the environment is active, you can install required dependencies such as Pygame:
-   ```
-   pip install pygame
-   ```
-4. **Deactivate the Environment**:
-
-   When you’re done working, deactivate the virtual environment with:
-   ```
-   deactivate
-   ```
-This returns your terminal to the global Python environment.
-
-By following these steps, you’ll be able to manage dependencies in an isolated environment on macOS, keeping them separate from other projects and the system’s default Python packages.
-
 ## Contributing
 
 We welcome contributions from the community! If you’d like to contribute:
