@@ -1,47 +1,47 @@
-import organism
 import numpy as np
-import grid
+import organism
 import loss_function
+from grid import Grid
 
 CAMOUFLAGE = 30
+NUM_ORGANISMS = 40
+
+def initialize_organisms(num_organisms):
+    organisms = np.empty((num_organisms, num_organisms), dtype=organism.Organism)
+    for i in range(num_organisms * num_organisms):
+        organisms[i // num_organisms, i % num_organisms] = organism.Organism()
+    return organisms
+
+def run_genetic_algorithm(grid, organisms, camouflage_color):
+    epoc = 0
+    while True:
+        organisms = loss_function.camouflage_ordered_organisms(organisms, camouflage_color)
+
+        grid.draw(organisms, 100, epoc)
+
+        input("Press Enter to continue...")
+
+        num_organisms = organisms.shape[0]
+        for row in range(num_organisms // 2, num_organisms):
+            for col in range(num_organisms):
+                # Reproduce los organismos más aptos
+                organisms[row][col] = organisms[row - num_organisms // 2][col].reproduce()
+
+        grid.draw(organisms, 100, epoc)
+        input("Press Enter to continue...")
+
+        epoc +=1
 
 def main():
 
-    # INITIALITZE ORGANISMS
-    number_of_organisms = 40
+    organisms = initialize_organisms(NUM_ORGANISMS)
 
-    # Create grid
-    Grid = grid.Grid((CAMOUFLAGE, CAMOUFLAGE, CAMOUFLAGE))
+    grid = Grid((CAMOUFLAGE, CAMOUFLAGE, CAMOUFLAGE), organisms, 1000)
 
-    organisms = np.empty((number_of_organisms, number_of_organisms), dtype=organism.Organism)
-
-    for x in range(number_of_organisms * number_of_organisms):
-        organisms[x // number_of_organisms, x % number_of_organisms] = organism.Organism()
-    
-    Grid.drawGrid(organisms, 100)
-
+    grid.draw(organisms, 100, 0)
     input("Press Enter to continue...")
 
-    # GENETIC ALGORITHM
-    while True:
-       
-        # Get organisms ordered by the camouflage
-        organisms = loss_function.camouflage_ordered_organisms(organisms, CAMOUFLAGE)
-
-        # Draw the sorted organisms on the grid
-        Grid.drawGrid(organisms, 100)
-        input("Press Enter to continue...")
-
-        # Kill the weakest (50%) ones and reproduce the best (50%) ones
-        for row in range(number_of_organisms // 2, number_of_organisms):
-            for col in range(number_of_organisms):
-                # Reproduce the best half to replace the weakest half
-                organisms[row][col] = organisms[row - number_of_organisms // 2][col].reproduce()
-
-        # Draw the updated organisms on the grid
-        Grid.drawGrid(organisms, 100)
-
-        input("Press Enter to continue...")
+    run_genetic_algorithm(grid, organisms, CAMOUFLAGE)
 
 if __name__ == "__main__":
     main()
