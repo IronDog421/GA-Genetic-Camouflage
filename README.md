@@ -2,7 +2,7 @@
 
 A dynamic grid-based simulation using Pygame, where each cell represents an organism with a unique DNA value displayed in grayscale. The simulation updates and displays the current generation in real-time.
 
-<img src="preview.png" alt="Grid Simulation Screenshot">
+<img src="preview.png" alt="Grid Simulation Screenshot" width=600px>
 
 ## Features
 
