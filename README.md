@@ -1,4 +1,4 @@
-# Grid Simulation with Pygame
+# Genetic Camouflage
 
 A dynamic grid-based simulation using Pygame, where each cell represents an organism with a unique DNA value displayed in grayscale. The simulation updates and displays the current generation in real-time.
 
