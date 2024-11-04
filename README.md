@@ -47,7 +47,7 @@ pip install pygame
 
    Execute the main Python file to start the simulation:
    ```
-   python main.py
+   python manager.py
    ```
    The program will display a grid, where each cell represents an organism with a grayscale color based on its DNA value. The current generation number will update in real-time on the right side of the window.
 
